@@ -8259,6 +8259,13 @@ prop-types@^15.6.2, prop-types@^15.7.2:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
+prosemirror-collab@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/prosemirror-collab/-/prosemirror-collab-1.2.2.tgz#8d2c0e82779cfef5d051154bd0836428bd6d9c4a"
+  integrity sha512-tBnHKMLgy5Qmx9MYVcLfs3pAyjtcqYYDd9kp3y+LSiQzkhMQDfZSV3NXWe4Gsly32adSef173BvObwfoSQL5MA==
+  dependencies:
+    prosemirror-state "^1.0.0"
+
 prosemirror-commands@^1.0.0:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/prosemirror-commands/-/prosemirror-commands-1.1.4.tgz#991563e67623acab4f8c510fad1570f8b4693780"
@@ -8382,6 +8389,11 @@ prosemirror-view@^1.0.0, prosemirror-view@^1.1.0, prosemirror-view@^1.14.7:
     prosemirror-model "^1.1.0"
     prosemirror-state "^1.0.0"
     prosemirror-transform "^1.1.0"
+
+prosemirror@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/prosemirror/-/prosemirror-0.11.1.tgz#4a2c40b824ededf1b1f56e6ece332621583c0887"
+  integrity sha512-IZ35mmexuo3DNkMXs2A3bAm1jdlAJRVPor/bX1AWT+TdAR9fv6igUjRUFtQDCRUKwxH7ufwL1p6Um/MdgcbVIw==
 
 proxy-addr@~2.0.5:
   version "2.0.6"
