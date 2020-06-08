@@ -12,14 +12,33 @@ import {keymap} from "prosemirror-keymap"
 
 function App() {
     useEffect(() => {
+        // Schemas
+        const trivialSchema = new Schema({
+          nodes: {
+            doc: {content: "paragraph"},
+            paragraph: {content: "text*"},
+            text: {inline: true},
+            /* ... and so on */
+          }
+        })
 
+        const groupSchema = new Schema({
+          nodes: {
+            doc: {content: "block+"},
+            paragraph: {group: "block", content: "text*"},
+            blockquote: {group: "block", content: "block+"},
+            text: {}
+          }
+        })
+        // Document structure
         let doc = schema.node("doc", null, [
           schema.node("paragraph", null, [schema.text("One.")]),
-          schema.node("horizontal_rule"),
-          schema.node("paragraph", null, [schema.text("Two!")]),
-          schema.node("horizontal_rule")
         ])
+
+
+        // State
         let state = EditorState.create({
+          trivialSchema,
           doc: doc,
           plugins: [
             history(),
@@ -27,6 +46,8 @@ function App() {
             keymap(baseKeymap)
           ]
         })
+
+        // View
         let view = new EditorView(document.body, {
           state,
           dispatchTransaction(transaction) {
@@ -52,7 +73,10 @@ function App() {
   return (
     <div className="App">
 
-        <p id="content">type here</p>
+        <h1 id="content">Real Time Text Editor</h1>
+        <p>Made with ❤️ by Yash Dani, June 2020.</p>     
+        <br />
+        <p>Text Editor</p>          
         <div id="editor" />
         <div id="content" />
 
