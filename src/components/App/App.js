@@ -30,15 +30,28 @@ function App() {
             text: {}
           }
         })
+
+        const markSchema = new Schema({
+          nodes: {
+            doc: {content: "block+"},
+            paragraph: {group: "block", content: "text*", marks: "_"},
+            heading: {group: "block", content: "text*", marks: ""},
+            text: {inline: true}
+          },
+          marks: {
+            strong: {},
+            em: {}
+          }
+        })
         // Document structure
         let doc = schema.node("doc", null, [
-          schema.node("paragraph", null, [schema.text("One.")]),
-        ])
+          schema.node("paragraph", null, [schema.text("Hello, test doc and testing and testing and testing!")]),
+        ]);
 
 
         // State
         let state = EditorState.create({
-          trivialSchema,
+          markSchema,
           doc: doc,
           plugins: [
             history(),
@@ -53,7 +66,10 @@ function App() {
           dispatchTransaction(transaction) {
             console.log("Document size went from", transaction.before.content.size,
                         "to", transaction.doc.content.size)
+            transaction.split(2)
             let newState = view.state.apply(transaction)
+            
+
             view.updateState(newState)
           }
         })
