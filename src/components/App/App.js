@@ -6,8 +6,7 @@ import {schema} from "prosemirror-schema-basic"
 //import {addListNodes} from "prosemirror-schema-list"
 //import {exampleSetup} from "prosemirror-example-setup"
 //import './App.css';
-import CodeMirror from "codemirror"
-import {baseKeymap, exitCode} from 'prosemirror-commands'
+import {baseKeymap} from 'prosemirror-commands'
 import {undo, redo, history} from "prosemirror-history"
 import {keymap} from "prosemirror-keymap"
 
@@ -56,7 +55,6 @@ function App() {
           doc: doc,
           plugins: [
             history(),
-            keymap({"Mod-z": undo, "Mod-y": redo}),
             keymap(baseKeymap)
           ]
         })
@@ -67,24 +65,10 @@ function App() {
           dispatchTransaction(transaction) {
             console.log("Document size went from", transaction.before.content.size,
                         "to", transaction.doc.content.size)
-            //transaction.split(2)
             let newState = view.state.apply(transaction)
-            
-
             view.updateState(newState)
           }
         })
-        /*const mySchema = new Schema({
-            nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block"),
-            marks: schema.spec.marks
-        })
-
-        window.view = new EditorView(document.querySelector("#editor"), {
-            state: EditorState.create({
-                doc: DOMParser.fromSchema(mySchema).parse(document.querySelector("#content")),
-                plugins: exampleSetup({schema: mySchema})
-            })
-        })*/
     });
 
   return (
