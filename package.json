@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "codemirror": "^5.54.0",
+    "codemirror": "^5.58.2",
     "prosemirror": "^0.11.1",
     "prosemirror-collab": "^1.2.2",
     "prosemirror-example-setup": "^1.1.2",
